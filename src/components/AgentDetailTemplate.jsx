@@ -41,6 +41,7 @@ export default function AgentDetailTemplate({
   const gallerySectionRef = useRef(null);
   const techStackSectionRef = useRef(null);
   const techMarqueeRef = useRef(null);
+  const heroVideoRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
@@ -88,6 +89,38 @@ export default function AgentDetailTemplate({
       sectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
+
+  const openVideoModal = () => {
+    setIsVideoModalOpen(true);
+  };
+
+  const closeVideoModal = () => {
+    setIsVideoModalOpen(false);
+  };
+
+  useEffect(() => {
+    if (!videoSrc) {
+      return undefined;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = isVideoModalOpen ? 'hidden' : previousOverflow;
+
+    const handleEscapeClose = (event) => {
+      if (event.key === 'Escape') {
+        setIsVideoModalOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscapeClose);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleEscapeClose);
+    };
+  }, [isVideoModalOpen, videoSrc]);
+
+  
 
   useEffect(() => {
     const sectionElement = featuresSectionRef.current;
@@ -230,6 +263,12 @@ export default function AgentDetailTemplate({
       background: linear-gradient(135deg, #f7f3f4 0%, #ffffff 100%);
     }
 
+    .agent-detail-container.is-video-expanded .agent-side-nav,
+    .agent-detail-container.is-video-expanded .agent-page-top-left-nav {
+      opacity: 0;
+      pointer-events: none;
+    }
+
     .agent-page-top-left-nav {
       position: absolute;
       top: 1.25rem;
@@ -348,9 +387,27 @@ export default function AgentDetailTemplate({
       transition: all 0.3s ease;
     }
 
+    .agent-video-placeholder.is-expanded {
+      position: fixed;
+      inset: 50% auto auto 50%;
+      transform: translate(-50%, -50%);
+      width: min(1100px, 92vw);
+      max-height: 82vh;
+      z-index: 10001;
+      border-radius: 1rem;
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: #000000;
+    }
+
     .agent-video-placeholder:hover {
       box-shadow: 0 30px 70px rgba(220, 31, 38, 0.25);
       border-color: rgba(220, 31, 38, 0.4);
+    }
+
+    .agent-video-placeholder.is-expanded:hover {
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.45);
+      border-color: rgba(255, 255, 255, 0.18);
     }
 
     .agent-video-icon {
@@ -391,57 +448,28 @@ export default function AgentDetailTemplate({
       background: #000000;
     }
 
-    .agent-video-modal {
+    .agent-video-backdrop {
       position: fixed;
       inset: 0;
       background: rgba(5, 8, 15, 0.86);
       backdrop-filter: blur(8px);
       z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       padding: 2rem;
     }
 
-    .agent-video-modal-content {
-      position: relative;
-      width: min(1100px, 92vw);
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: #000000;
-    }
-
-    .agent-video-modal-player {
-      width: 100%;
-      max-height: 80vh;
-      display: block;
-      background: #000000;
-    }
-
-    .agent-video-modal-close {
+    .agent-video-exit-hint {
       position: absolute;
-      top: 0.9rem;
-      right: 0.9rem;
-      width: 2.2rem;
-      height: 2.2rem;
-      border: none;
-      border-radius: 9999px;
-      background: rgba(220, 31, 38, 0.95);
-      color: #ffffff;
-      font-size: 1.1rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 14px rgba(220, 31, 38, 0.28);
-      transition: all 0.25s ease;
+      top: 1.1rem;
+      right: 1.35rem;
+      color: #8e98a8;
+      font-size: 0.84rem;
+      letter-spacing: 0.01em;
+      font-weight: 500;
+      pointer-events: none;
     }
 
-    .agent-video-modal-close:hover {
-      background: #b81b20;
-      transform: scale(1.08);
+    .agent-video-placeholder.is-expanded .agent-video-label {
+      display: none;
     }
 
     .agent-capabilities {
@@ -1363,7 +1391,7 @@ export default function AgentDetailTemplate({
         padding: 1rem;
       }
 
-      .agent-video-modal-content {
+      .agent-video-placeholder.is-expanded {
         width: 96vw;
       }
     }
@@ -1372,7 +1400,7 @@ export default function AgentDetailTemplate({
   return (
     <>
       <style>{styles}</style>
-      <div className="agent-detail-container">
+      <div className={`agent-detail-container ${isVideoModalOpen ? 'is-video-expanded' : ''}`}>
         {/* Side Navigation */}
         <nav className="agent-side-nav" aria-label="Section navigation">
           <button
@@ -1450,9 +1478,15 @@ export default function AgentDetailTemplate({
             
             <div className="agent-hero-content">
               {/* Video Placeholder */}
-              <div className="agent-video-placeholder">
+              {isVideoModalOpen && videoSrc && (
+                <div className="agent-video-backdrop" onClick={closeVideoModal}>
+                  <span className="agent-video-exit-hint">Click anywhere to exit</span>
+                </div>
+              )}
+              <div className={`agent-video-placeholder ${isVideoModalOpen ? 'is-expanded' : ''}`}>
                 {videoSrc ? (
                   <video
+                    ref={heroVideoRef}
                     className="agent-hero-video"
                     src={videoSrc}
                     autoPlay
@@ -1460,16 +1494,16 @@ export default function AgentDetailTemplate({
                     muted
                     playsInline
                     controls
-                    preload="metadata"
+                    preload="auto"
                   />
                 ) : (
                   <div className="agent-video-icon">▶</div>
                 )}
-                {videoSrc && (
+                {videoSrc && !isVideoModalOpen && (
                   <button
                     type="button"
                     className="agent-video-label"
-                    onClick={() => setIsVideoModalOpen(true)}
+                    onClick={openVideoModal}
                   >
                     View Full Video
                   </button>
@@ -1651,27 +1685,6 @@ export default function AgentDetailTemplate({
           </div>
         </section>
 
-        {isVideoModalOpen && videoSrc && (
-          <div className="agent-video-modal" onClick={() => setIsVideoModalOpen(false)}>
-            <div className="agent-video-modal-content" onClick={(event) => event.stopPropagation()}>
-              <button
-                type="button"
-                className="agent-video-modal-close"
-                aria-label="Close full video"
-                onClick={() => setIsVideoModalOpen(false)}
-              >
-                x
-              </button>
-              <video
-                className="agent-video-modal-player"
-                src={videoSrc}
-                controls
-                autoPlay
-                playsInline
-              />
-            </div>
-          </div>
-        )}
       </div>
     </>
   );
