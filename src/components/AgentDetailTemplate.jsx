@@ -14,7 +14,7 @@ import {
   SiRedis,
   SiPytorch
 } from 'react-icons/si';
-import { FaUserTie, FaUser } from 'react-icons/fa';
+import { FaUserTie, FaUser, FaHome, FaBook, FaImage, FaWrench, FaLightbulb } from 'react-icons/fa';
 import { MdArrowForward } from 'react-icons/md';
 
 export default function AgentDetailTemplate({ 
@@ -33,8 +33,13 @@ export default function AgentDetailTemplate({
   const [areFeaturesInView, setAreFeaturesInView] = useState(false);
   const [isHowToUseInView, setIsHowToUseInView] = useState(false);
   const [centerTechKeys, setCenterTechKeys] = useState([]);
+  const [activeNavSection, setActiveNavSection] = useState('hero');
+  const heroSectionRef = useRef(null);
   const featuresSectionRef = useRef(null);
   const howToUseSectionRef = useRef(null);
+  const howItWorksSectionRef = useRef(null);
+  const gallerySectionRef = useRef(null);
+  const techStackSectionRef = useRef(null);
   const techMarqueeRef = useRef(null);
 
   useEffect(() => {
@@ -46,6 +51,43 @@ export default function AgentDetailTemplate({
       setIsVideoModalOpen(true);
     }
   }, [location.state, videoSrc]);
+
+  // Handle active nav section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = [
+        { ref: heroSectionRef, id: 'hero' },
+        { ref: featuresSectionRef, id: 'features' },
+        { ref: howToUseSectionRef, id: 'howToUse' },
+        { ref: howItWorksSectionRef, id: 'howItWorks' },
+        { ref: gallerySectionRef, id: 'gallery' },
+        { ref: techStackSectionRef, id: 'techStack' }
+      ];
+
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section.ref.current) {
+          const sectionTop = section.ref.current.offsetTop;
+          if (scrollPosition >= sectionTop) {
+            setActiveNavSection(section.id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Smooth scroll to section
+  const scrollToSection = (sectionRef) => {
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   useEffect(() => {
     const sectionElement = featuresSectionRef.current;
@@ -995,7 +1037,7 @@ export default function AgentDetailTemplate({
     .agent-gallery-main-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.02), rgba(15, 23, 42, 0.2));
+      // background: linear-gradient(180deg, rgba(15, 23, 42, 0.02), rgba(15, 23, 42, 0.2));
       pointer-events: none;
     }
 
@@ -1103,6 +1145,69 @@ export default function AgentDetailTemplate({
       }
       100% {
         transform: translateX(-50%);
+      }
+    }
+
+    /* Side Navigation */
+    .agent-side-nav {
+      position: fixed;
+      left: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      padding: 1.25rem 0.9rem;
+      box-shadow: 0 8px 32px rgba(220, 31, 38, 0.12);
+      border: 1px solid rgba(220, 31, 38, 0.15);
+    }
+
+    .agent-nav-item {
+      width: 2.5rem;
+      height: 2.5rem;
+      border: none;
+      background: transparent;
+      color: #9ca3af;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .agent-nav-item:hover {
+      color: #dc1f26;
+      background: rgba(220, 31, 38, 0.08);
+      transform: scale(1.1);
+    }
+
+    .agent-nav-item.is-active {
+      color: #ffffff;
+      background: linear-gradient(135deg, #dc1f26 0%, #b81b20 100%);
+      box-shadow: 0 4px 12px rgba(220, 31, 38, 0.3);
+    }
+
+    .agent-nav-item.is-active::after {
+      content: '';
+      position: absolute;
+      right: -0.95rem;
+      width: 0.35rem;
+      height: 1.25rem;
+      background: #dc1f26;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* Responsive - Hide nav on mobile */
+    @media (max-width: 1024px) {
+      .agent-side-nav {
+        display: none;
       }
     }
 
@@ -1267,13 +1372,74 @@ export default function AgentDetailTemplate({
     <>
       <style>{styles}</style>
       <div className="agent-detail-container">
+        {/* Side Navigation */}
+        <nav className="agent-side-nav" aria-label="Section navigation">
+          <button
+            type="button"
+            className={`agent-nav-item ${activeNavSection === 'hero' ? 'is-active' : ''}`}
+            onClick={() => scrollToSection(heroSectionRef)}
+            title="Home"
+            aria-label="Home"
+          >
+            <FaHome />
+          </button>
+          <button
+            type="button"
+            className={`agent-nav-item ${activeNavSection === 'features' ? 'is-active' : ''}`}
+            onClick={() => scrollToSection(featuresSectionRef)}
+            title="Key Features"
+            aria-label="Key Features"
+          >
+            <FaLightbulb />
+          </button>
+          {howToUse.length > 0 && (
+            <button
+              type="button"
+              className={`agent-nav-item ${activeNavSection === 'howToUse' ? 'is-active' : ''}`}
+              onClick={() => scrollToSection(howToUseSectionRef)}
+              title="How to Use"
+              aria-label="How to Use"
+            >
+              <FaBook />
+            </button>
+          )}
+          {howItWorks.length > 0 && (
+            <button
+              type="button"
+              className={`agent-nav-item ${activeNavSection === 'howItWorks' ? 'is-active' : ''}`}
+              onClick={() => scrollToSection(howItWorksSectionRef)}
+              title="How It Works"
+              aria-label="How It Works"
+            >
+              <FaWrench />
+            </button>
+          )}
+          <button
+            type="button"
+            className={`agent-nav-item ${activeNavSection === 'gallery' ? 'is-active' : ''}`}
+            onClick={() => scrollToSection(gallerySectionRef)}
+            title="Images"
+            aria-label="Images"
+          >
+            <FaImage />
+          </button>
+          <button
+            type="button"
+            className={`agent-nav-item ${activeNavSection === 'techStack' ? 'is-active' : ''}`}
+            onClick={() => scrollToSection(techStackSectionRef)}
+            title="Tech Stack"
+            aria-label="Tech Stack"
+          >
+            <FaWrench />
+          </button>
+        </nav>
         <div className="agent-page-top-left-nav">
           <Link to="/" className="agent-cta-button">
             ← Back to Home
           </Link>
         </div>
         {/* Hero Section */}
-        <section className="agent-hero">
+        <section className="agent-hero" ref={heroSectionRef}>
           <div className="agent-hero-inner">
             <div className="agent-hero-badge">
               ✨ Agentic Suite {suiteNumber}
@@ -1395,7 +1561,7 @@ export default function AgentDetailTemplate({
         )}
 
         {howItWorks.length > 0 && (
-          <section className="agent-how">
+          <section className="agent-how" ref={howItWorksSectionRef}>
             <div className="agent-how-wrapper">
               <h2 className="agent-section-title">How It Works</h2>
               <p className="agent-how-subtitle">
@@ -1424,7 +1590,7 @@ export default function AgentDetailTemplate({
         )}
 
         {/* Gallery Section */}
-        <section className="agent-gallery">
+        <section className="agent-gallery" ref={gallerySectionRef}>
           <div className="agent-gallery-wrapper">
             <h2 className="agent-section-title">Experience the Suite</h2>
             <div className="agent-gallery-layout">
@@ -1462,7 +1628,7 @@ export default function AgentDetailTemplate({
           </div>
         </section>
 
-        <section className="agent-tech-strip" aria-label="Agent tech stack carousel">
+        <section className="agent-tech-strip" aria-label="Agent tech stack carousel" ref={techStackSectionRef}>
           <h3 className="agent-tech-title">Tech Stack</h3>
           <div className="agent-tech-marquee" ref={techMarqueeRef}>
             <div className="agent-tech-track">

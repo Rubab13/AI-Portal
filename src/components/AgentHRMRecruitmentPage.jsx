@@ -8,6 +8,12 @@ import image4 from '../assets/suite-01-hrm/image4.png';
 import image5 from '../assets/suite-01-hrm/image5.png';
 import image6 from '../assets/suite-01-hrm/image6.png';
 import image7 from '../assets/suite-01-hrm/image7.png';
+import image8 from '../assets/suite-01-hrm/image8.png';
+import image9 from '../assets/suite-01-hrm/image9.png';
+import image10 from '../assets/suite-01-hrm/image10.png';
+import image11 from '../assets/suite-01-hrm/image11.png';
+import image12 from '../assets/suite-01-hrm/image12.png';
+import image13 from '../assets/suite-01-hrm/image13.png';
 import suiteVideo from '../assets/suite-01-hrm/video.mp4';
 
 export default function AgentHRMRecruitmentPage() {
@@ -58,7 +64,7 @@ export default function AgentHRMRecruitmentPage() {
     }
   ];
 
-  const galleryImages = [image1, image2, image3, image4, image5, image6, image7];
+  const galleryImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13];
 
   return (
     <div className="min-h-screen flex flex-col">
