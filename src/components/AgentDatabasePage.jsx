@@ -1,9 +1,16 @@
-import Header from './Header';
 import Footer from './Footer';
 import AgentDetailTemplate from './AgentDetailTemplate';
-import agentSuiteOne from '../assets/agentsuite1.jpg';
-import agentSuiteTwo from '../assets/agentsuite2.jpg';
-import agentSuiteFour from '../assets/agentsuite4.png';
+
+import image1 from "../assets/suite-03-database/image1.png";
+import image2 from "../assets/suite-03-database/image2.png";
+import image3 from "../assets/suite-03-database/image3.png";
+import image4 from "../assets/suite-03-database/image4.png";
+import image5 from "../assets/suite-03-database/image5.png";
+import image6 from "../assets/suite-03-database/image6.png";
+import image7 from "../assets/suite-03-database/image7.png";
+import image8 from "../assets/suite-03-database/image8.png";
+import image9 from "../assets/suite-03-database/image9.png";
+
 import suiteVideo from '../assets/suite-03-database/video.mp4';
 
 export default function AgentDatabasePage() {
@@ -30,7 +37,7 @@ export default function AgentDatabasePage() {
     }
   ];
 
-  const galleryImages = [agentSuiteOne, agentSuiteTwo, agentSuiteFour];
+  const galleryImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9];
 
   return (
     <div className="min-h-screen flex flex-col">

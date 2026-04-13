@@ -946,7 +946,7 @@ export default function AgentDetailTemplate({
 
     .agent-gallery-layout {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(280px, 2fr);
+      grid-template-columns: minmax(0, 3.35fr) minmax(220px, 1.35fr);
       gap: 1.25rem;
       align-items: stretch;
       width: min(100%, 1400px);
@@ -966,9 +966,10 @@ export default function AgentDetailTemplate({
     .agent-gallery-main-image {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center;
       transition: opacity 0.25s ease, transform 0.35s ease;
-      filter: brightness(0.92);
+      filter: none;
     }
 
     .agent-gallery-thumbs {
@@ -989,7 +990,7 @@ export default function AgentDetailTemplate({
       padding: 0;
       border-radius: 1rem;
       overflow: hidden;
-      min-height: 110px;
+      min-height: 92px;
       background: #ffffff;
       box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
       cursor: pointer;
