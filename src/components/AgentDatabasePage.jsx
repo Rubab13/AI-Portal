@@ -10,8 +10,25 @@ import image6 from "../assets/suite-03-database/image6.png";
 import image7 from "../assets/suite-03-database/image7.png";
 import image8 from "../assets/suite-03-database/image8.png";
 import image9 from "../assets/suite-03-database/image9.png";
+import image10 from "../assets/suite-03-database/image10.png";
+import image11 from "../assets/suite-03-database/image11.png";
+import image12 from "../assets/suite-03-database/image12.png";
 
 import suiteVideo from '../assets/suite-03-database/video.mp4';
+import {
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiPython,
+  SiPostgresql,
+  SiMongodb,
+  SiDocker,
+  SiKubernetes,
+  SiApachekafka,
+  SiOpenai,
+  SiRedis,
+  SiPytorch
+} from 'react-icons/si';
 
 export default function AgentDatabasePage() {
   const features = [
@@ -37,7 +54,22 @@ export default function AgentDatabasePage() {
     }
   ];
 
-  const galleryImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9];
+  const galleryImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12];
+
+  const techStack = [
+    { name: 'React', Icon: SiReact },
+    { name: 'Node.js', Icon: SiNodedotjs },
+    { name: 'Express', Icon: SiExpress },
+    { name: 'Python', Icon: SiPython },
+    { name: 'PostgreSQL', Icon: SiPostgresql },
+    { name: 'MongoDB', Icon: SiMongodb },
+    { name: 'Docker', Icon: SiDocker },
+    { name: 'Kubernetes', Icon: SiKubernetes },
+    { name: 'Kafka', Icon: SiApachekafka },
+    { name: 'OpenAI API', Icon: SiOpenai },
+    { name: 'Redis', Icon: SiRedis },
+    { name: 'PyTorch', Icon: SiPytorch }
+  ];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -49,6 +81,7 @@ export default function AgentDatabasePage() {
           features={features}
           videoSrc={suiteVideo}
           galleryImages={galleryImages}
+          techStack={techStack}
         />
       </main>
       <Footer />

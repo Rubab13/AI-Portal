@@ -15,6 +15,20 @@ import image11 from '../assets/suite-01-hrm/image11.png';
 import image12 from '../assets/suite-01-hrm/image12.png';
 import image13 from '../assets/suite-01-hrm/image13.png';
 import suiteVideo from '../assets/suite-01-hrm/video.mp4';
+import {
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiPython,
+  SiPostgresql,
+  SiMongodb,
+  SiDocker,
+  SiKubernetes,
+  SiApachekafka,
+  SiOpenai,
+  SiRedis,
+  SiPytorch
+} from 'react-icons/si';
 
 export default function AgentHRMRecruitmentPage() {
   const features = [
@@ -66,6 +80,21 @@ export default function AgentHRMRecruitmentPage() {
 
   const galleryImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13];
 
+  const techStack = [
+    { name: 'React', Icon: SiReact },
+    { name: 'Node.js', Icon: SiNodedotjs },
+    { name: 'Express', Icon: SiExpress },
+    { name: 'Python', Icon: SiPython },
+    { name: 'PostgreSQL', Icon: SiPostgresql },
+    { name: 'MongoDB', Icon: SiMongodb },
+    { name: 'Docker', Icon: SiDocker },
+    { name: 'Kubernetes', Icon: SiKubernetes },
+    { name: 'Kafka', Icon: SiApachekafka },
+    { name: 'OpenAI API', Icon: SiOpenai },
+    { name: 'Redis', Icon: SiRedis },
+    { name: 'PyTorch', Icon: SiPytorch }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-1">
@@ -77,6 +106,7 @@ export default function AgentHRMRecruitmentPage() {
           howToUse={howToUse}
           videoSrc={suiteVideo}
           galleryImages={galleryImages}
+          techStack={techStack}
         />
       </main>
       <Footer />

@@ -10,6 +10,20 @@ import image6 from '../assets/suite-02-contract/image6.png';
 import image7 from '../assets/suite-02-contract/image7.png';
 
 import suiteVideo from '../assets/suite-02-contract/video.mp4';
+import {
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiPython,
+  SiPostgresql,
+  SiMongodb,
+  SiDocker,
+  SiKubernetes,
+  SiApachekafka,
+  SiOpenai,
+  SiRedis,
+  SiPytorch
+} from 'react-icons/si';
 
 export default function AgentContractEvaluatorPage() {
   const features = [
@@ -68,6 +82,21 @@ export default function AgentContractEvaluatorPage() {
 
   const galleryImages = [image1, image2, image3, image4, image5, image6, image7];
 
+  const techStack = [
+    { name: 'React', Icon: SiReact },
+    { name: 'Node.js', Icon: SiNodedotjs },
+    { name: 'Express', Icon: SiExpress },
+    { name: 'Python', Icon: SiPython },
+    { name: 'PostgreSQL', Icon: SiPostgresql },
+    { name: 'MongoDB', Icon: SiMongodb },
+    { name: 'Docker', Icon: SiDocker },
+    { name: 'Kubernetes', Icon: SiKubernetes },
+    { name: 'Kafka', Icon: SiApachekafka },
+    { name: 'OpenAI API', Icon: SiOpenai },
+    { name: 'Redis', Icon: SiRedis },
+    { name: 'PyTorch', Icon: SiPytorch }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-1">
@@ -79,6 +108,7 @@ export default function AgentContractEvaluatorPage() {
           howItWorks={howItWorks}
           videoSrc={suiteVideo}
           galleryImages={galleryImages}
+          techStack={techStack}
         />
       </main>
       <Footer />

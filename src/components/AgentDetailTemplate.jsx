@@ -23,6 +23,7 @@ export default function AgentDetailTemplate({
   description, 
   features,
   galleryImages,
+  techStack = [],
   howToUse = [],
   howItWorks = [],
   videoSrc = ''
@@ -195,7 +196,7 @@ export default function AgentDetailTemplate({
     }
   })();
 
-  const techStack = [
+  const defaultTechStack = [
     { name: 'React', Icon: SiReact },
     { name: 'Node.js', Icon: SiNodedotjs },
     { name: 'Express', Icon: SiExpress },
@@ -209,6 +210,8 @@ export default function AgentDetailTemplate({
     { name: 'Redis', Icon: SiRedis },
     { name: 'PyTorch', Icon: SiPytorch }
   ];
+
+  const suiteTechStack = Array.isArray(techStack) && techStack.length > 0 ? techStack : defaultTechStack;
 
   useEffect(() => {
     const marqueeElement = techMarqueeRef.current;
@@ -1667,7 +1670,7 @@ export default function AgentDetailTemplate({
           <h3 className="agent-tech-title">Tech Stack</h3>
           <div className="agent-tech-marquee" ref={techMarqueeRef}>
             <div className="agent-tech-track">
-              {[...techStack, ...techStack].map((tech, index) => {
+              {[...suiteTechStack, ...suiteTechStack].map((tech, index) => {
                 const Icon = tech.Icon;
                 const chipKey = `${tech.name}-${index}`;
                 return (
