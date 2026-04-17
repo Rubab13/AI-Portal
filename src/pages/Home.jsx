@@ -1,5 +1,5 @@
 import Hero from '../components/Hero';
-import QuickValueStrip from '../components/QuickValueStrip';
+import QuickValueStrip from '../ui/QuickValueStrip/QuickValueStrip';
 import AgentSlider from '../components/AgentSlider';
 import PartnerStatsSection from '../components/PartnerStatsSection';
 import Footer from '../ui/footer/Footer';

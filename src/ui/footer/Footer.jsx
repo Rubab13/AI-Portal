@@ -22,13 +22,13 @@ export default function Footer() {
         </div>
 
         <ul className={styles.footerMenu} aria-label="Footer links">
-          <li><a href="#" className={styles.menuLink}>Ethics</a></li>
-          <li><a href="#" className={styles.menuLink}>API</a></li>
-          <li><a href="#" className={styles.menuLink}>Documentation</a></li>
-          <li><a href="#" className={`${styles.menuLink} ${styles.supportLink}`}>Support</a></li>
+          <li><a href="https://www.kalsoft.com/about-our-company/" target='_blank' className={styles.menuLink}>COMPANY</a></li>
+          <li><a href="https://www.kalsoft.com/case-studies/" target='_blank' className={styles.menuLink}>CASE STUDIES</a></li>
+          <li><a href="https://www.kalsoft.com/careers/" target='_blank' className={styles.menuLink}>CAREER</a></li>
+          <li><a href="https://www.kalsoft.com/contact-us/" target='_blank' className={`${styles.menuLink} ${styles.supportLink}`}>Contact Us</a></li>
         </ul>
 
-        <div className={styles.footerIcons} aria-label="Footer actions">
+        {/* <div className={styles.footerIcons} aria-label="Footer actions">
           <button type="button" className={styles.iconButton} aria-label="Open terminal">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
               <rect x="3.5" y="5" width="17" height="14" rx="2.5" />
@@ -44,7 +44,7 @@ export default function Footer() {
               <path d="M12 5.2c-2.1 2-2.1 11.6 0 13.6" />
             </svg>
           </button>
-        </div>
+        </div> */}
       </div>
       <div className={`site-shell ${styles.footerWrap} ${styles.partnerStrip}`}>
         <div className={styles.partnerLogoRow} aria-label="Partner logos">

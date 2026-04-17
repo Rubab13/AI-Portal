@@ -15,12 +15,13 @@ import {
   SiPytorch
 } from 'react-icons/si';
 import { FaUserTie, FaUser, FaHome, FaBook, FaImage, FaWrench, FaLightbulb } from 'react-icons/fa';
-import { MdArrowForward } from 'react-icons/md';
+import { MdArrowBack, MdArrowForward } from 'react-icons/md';
+import kalsoftLogo from '../assets/logo/Logo.png';
 
-export default function AgentDetailTemplate({ 
-  suiteNumber, 
-  title, 
-  description, 
+export default function AgentDetailTemplate({
+  suiteNumber,
+  title,
+  description,
   features,
   galleryImages,
   techStack = [],
@@ -121,7 +122,7 @@ export default function AgentDetailTemplate({
     };
   }, [isVideoModalOpen, videoSrc]);
 
-  
+
 
   useEffect(() => {
     const sectionElement = featuresSectionRef.current;
@@ -276,7 +277,17 @@ export default function AgentDetailTemplate({
       position: absolute;
       top: 1.25rem;
       left: 1.5rem;
-      z-index: 20;
+      z-index: 120;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .agent-top-logo {
+      width: 9rem;
+      height: 4rem;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 10px rgba(220, 31, 38, 0.16));
     }
 
     .agent-cta-button {
@@ -1101,7 +1112,7 @@ export default function AgentDetailTemplate({
       max-width: 1400px;
       margin: 0 auto 1.1rem;
       padding: 0 1.5rem;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -1236,6 +1247,10 @@ export default function AgentDetailTemplate({
       border-radius: 0 2px 2px 0;
     }
 
+    .agent-nav-link {
+      text-decoration: none;
+    }
+
     /* Responsive - Hide nav on mobile */
     @media (max-width: 1024px) {
       .agent-side-nav {
@@ -1275,6 +1290,11 @@ export default function AgentDetailTemplate({
       .agent-page-top-left-nav {
         top: 0.75rem;
         left: 1rem;
+      }
+
+      .agent-top-logo {
+        width: 2.15rem;
+        height: 2.15rem;
       }
 
       .agent-cta-button {
@@ -1404,6 +1424,12 @@ export default function AgentDetailTemplate({
     <>
       <style>{styles}</style>
       <div className={`agent-detail-container ${isVideoModalOpen ? 'is-video-expanded' : ''}`}>
+        <div className="agent-page-top-left-nav">
+          <Link to="/" className="agent-nav-link agent-nav-item" title="Back to Home" aria-label="Back to Home">
+            <MdArrowBack />
+          </Link>
+          <img src={kalsoftLogo} alt="Kalsoft logo" className="agent-top-logo" />
+        </div>
         {/* Side Navigation */}
         <nav className="agent-side-nav" aria-label="Section navigation">
           <button
@@ -1465,11 +1491,6 @@ export default function AgentDetailTemplate({
             <FaWrench />
           </button>
         </nav>
-        <div className="agent-page-top-left-nav">
-          <Link to="/" className="agent-cta-button">
-            ← Back to Home
-          </Link>
-        </div>
         {/* Hero Section */}
         <section className="agent-hero" ref={heroSectionRef}>
           <div className="agent-hero-inner">
@@ -1478,7 +1499,7 @@ export default function AgentDetailTemplate({
             </div>
             <h1 className="agent-hero-title">{title}</h1>
             <p className="agent-hero-description">{description}</p>
-            
+
             <div className="agent-hero-content">
               {/* Video Placeholder */}
               {isVideoModalOpen && videoSrc && (
@@ -1518,7 +1539,7 @@ export default function AgentDetailTemplate({
               <div className="agent-capabilities">
                 <h2 className="agent-capabilities-title">Core Capabilities</h2>
                 {features.map((feature, index) => (
-                  <div key={index} className="agent-capability-item" style={{borderBottom: "1px solid #dc1f26"}}>
+                  <div key={index} className="agent-capability-item" style={{ borderBottom: "1px solid #dc1f26" }}>
                     <div className="agent-capability-icon">{feature.icon}</div>
                     <div className="agent-capability-text">{feature.name}</div>
                   </div>
