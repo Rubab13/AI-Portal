@@ -3,10 +3,30 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import heroStyles from './Hero.module.css';
 import kalsoftLogo from '../assets/logo/logo1.png';
-import suiteImage1 from '../assets/suite-landing-page-images/agentsuite1.jpg';
-import suiteImage2 from '../assets/suite-landing-page-images/agentSuite2.jpg';
-import suiteImage3 from '../assets/suite-landing-page-images/agentSuite3.png';
-import suiteImage4 from '../assets/suite-landing-page-images/agentSuite4.png';
+import image1 from '../assets/hero-section-images/image1.jpg';
+import image2 from '../assets/hero-section-images/image2.jpg';
+import image3 from '../assets/hero-section-images/image3.jpg';
+import image4 from '../assets/hero-section-images/image4.png';
+import image5 from '../assets/hero-section-images/image5.png';
+import image6 from '../assets/hero-section-images/image6.png';
+
+const leftColumnImages = [
+  { src: image1, alt: 'Kalsoft AI suite visual one' },
+  { src: image2, alt: 'Kalsoft AI suite visual two' },
+  { src: image3, alt: 'Kalsoft AI suite visual three' },
+  { src: image4, alt: 'Kalsoft AI suite visual four' },
+  { src: image5, alt: 'Kalsoft AI suite visual five' },
+  { src: image6, alt: 'Kalsoft AI suite visual six' },
+];
+
+const rightColumnImages = [
+  { src: image1, alt: 'Kalsoft AI suite visual one' },
+  { src: image2, alt: 'Kalsoft AI suite visual two' },
+  { src: image3, alt: 'Kalsoft AI suite visual three' },
+  { src: image4, alt: 'Kalsoft AI suite visual four' },
+  { src: image5, alt: 'Kalsoft AI suite visual five' },
+  { src: image6, alt: 'Kalsoft AI suite visual six' },
+];
 
 export default function Hero() {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
@@ -122,35 +142,42 @@ export default function Hero() {
               </button>
             </div>
 
-            <div className={heroStyles.socialProof}>
+            {/* <div className={heroStyles.socialProof}>
               <div className={heroStyles.avatarRow} aria-hidden="true">
-                <img src={suiteImage1} alt="" className={heroStyles.avatar} />
-                <img src={suiteImage3} alt="" className={heroStyles.avatar} />
-                <img src={suiteImage4} alt="" className={heroStyles.avatar} />
+                <img src={image1} alt="" className={heroStyles.avatar} />
+                <img src={image2} alt="" className={heroStyles.avatar} />
+                <img src={image3} alt="" className={heroStyles.avatar} />
               </div>
-              <p className={heroStyles.socialText}>Join with 2100+ users and start generating impact now</p>
-            </div>
+              <p className={heroStyles.socialText}>Join with millions of users and start generating impact now</p>
+            </div> */}
           </div>
 
           <div className={heroStyles.heroGallery}>
-            <figure className={`${heroStyles.galleryCard} ${heroStyles.cardTopLeft}`}>
-              <img src={suiteImage1} alt="Kalsoft AI suite visual one" className={heroStyles.galleryImage} />
-            </figure>
-            <figure className={`${heroStyles.galleryCard} ${heroStyles.cardTopRight}`}>
-              <img src={suiteImage4} alt="Kalsoft AI suite visual two" className={heroStyles.galleryImage} />
-            </figure>
-            <figure className={`${heroStyles.galleryCard} ${heroStyles.cardMiddleLeft}`}>
-              <img src={suiteImage2} alt="Kalsoft AI suite visual two" className={heroStyles.galleryImage} />
-            </figure>
-            <figure className={`${heroStyles.galleryCard} ${heroStyles.cardMiddleRight}`}>
-              <img src={suiteImage3} alt="Kalsoft AI suite visual three" className={heroStyles.galleryImage} />
-            </figure>
-            <figure className={`${heroStyles.galleryCard} ${heroStyles.cardBottomLeft}`}>
-              <img src={suiteImage1} alt="Kalsoft AI suite visual repeated" className={heroStyles.galleryImage} />
-            </figure>
-            <figure className={`${heroStyles.galleryCard} ${heroStyles.cardBottomRight}`}>
-              <img src={suiteImage4} alt="Kalsoft AI suite visual repeated fourth" className={heroStyles.galleryImage} />
-            </figure>
+            <div className={heroStyles.galleryColumnViewport}>
+              <div className={`${heroStyles.galleryTrack} ${heroStyles.trackUp}`}>
+                {[...leftColumnImages, ...leftColumnImages].map((image, index) => (
+                  <figure
+                    key={`left-${index}`}
+                    className={`${heroStyles.galleryCard} ${index % 2 === 0 ? heroStyles.cardSquare : heroStyles.cardRectangle}`}
+                  >
+                    <img src={image.src} alt={image.alt} className={heroStyles.galleryImage} />
+                  </figure>
+                ))}
+              </div>
+            </div>
+
+            <div className={heroStyles.galleryColumnViewport}>
+              <div className={`${heroStyles.galleryTrack} ${heroStyles.trackDown}`}>
+                {[...rightColumnImages, ...rightColumnImages].map((image, index) => (
+                  <figure
+                    key={`right-${index}`}
+                    className={`${heroStyles.galleryCard} ${index % 3 === 0 ? heroStyles.cardSmall : index % 3 === 1 ? heroStyles.cardLarge : heroStyles.cardMedium}`}
+                  >
+                    <img src={image.src} alt={image.alt} className={heroStyles.galleryImage} />
+                  </figure>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 .heroSection {
-  /* background: #ececed; */
-  /* border-bottom: 1px solid rgba(17, 24, 39, 0.06); */
+  position: relative;
 }
 
 .heroShell {
@@ -112,6 +111,8 @@
   position: relative;
   z-index: 1;
   margin-top: 2rem;
+  min-height: 110vh;
+  height: 110vh;
   display: grid;
   grid-template-columns: minmax(0, 1.28fr) minmax(0, 0.92fr);
   gap: 1.45rem;
@@ -122,6 +123,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
+  min-height: 0;
   padding: 1.75rem 0.2rem 1.35rem 0;
 }
 
@@ -226,14 +229,41 @@
 }
 
 .heroGallery {
-  min-height: clamp(520px, 76vh, 760px);
+  height: 100%;
+  min-height: 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-rows: repeat(8, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.28fr) minmax(0, 0.72fr);
   gap: 0.52rem;
+  overflow: hidden;
+}
+
+.galleryColumnViewport {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.galleryTrack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.52rem;
+  will-change: transform;
+}
+
+.trackUp {
+  animation: heroColumnUp 50s linear infinite;
+}
+
+.trackDown {
+  animation: heroColumnDown 80s linear infinite;
+}
+
+.heroGallery:hover .galleryTrack {
+  animation-play-state: paused;
 }
 
 .galleryCard {
+  position: relative;
   margin: 0;
   border-radius: 0.92rem;
   overflow: hidden;
@@ -241,45 +271,71 @@
   background: #e5e7eb;
 }
 
+.galleryCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.308);
+  pointer-events: none;
+}
+
 .galleryImage {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 
-.cardTopLeft {
-  grid-column: 1 / 3;
-  grid-row: 1 / 3;
+.cardSquare {
+  aspect-ratio: 1 / 1;
+  min-height: clamp(170px, 22vh, 245px);
 }
 
-.cardTopRight {
-  grid-column: 3 / 4;
-  grid-row: 1 / 2;
+.cardRectangle {
+  aspect-ratio: 4 / 5;
+  min-height: clamp(220px, 30vh, 340px);
 }
 
-.cardMiddleLeft {
-  grid-column: 1 / 3;
-  grid-row: 3 / 6;
+.cardLarge {
+  aspect-ratio: 4 / 5;
+  min-height: clamp(230px, 35vh, 360px);
 }
 
-.cardMiddleRight {
-  grid-column: 3 / 5;
-  grid-row: 2 / 6;
+.cardMedium {
+  aspect-ratio: 1 / 1;
+  min-height: clamp(180px, 28vh, 280px);
 }
 
-.cardBottomLeft {
-  grid-column: 1 / 3;
-  grid-row: 6 / 9;
+.cardSmall {
+  aspect-ratio: 5 / 6;
+  min-height: clamp(140px, 20vh, 200px);
 }
 
-.cardBottomRight {
-  grid-column: 3 / 4;
-  grid-row: 6 / 9;
+@keyframes heroColumnUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-50% - 0.26rem));
+  }
+}
+
+@keyframes heroColumnDown {
+  from {
+    transform: translateY(calc(-50% - 0.26rem));
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 1180px) {
   .heroGrid {
+    min-height: auto;
+    height: auto;
     margin-top: 3.35rem;
     grid-template-columns: 1fr;
     gap: 1.35rem;
@@ -295,38 +351,7 @@
 
   .heroGallery {
     min-height: 430px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: repeat(6, minmax(0, 1fr));
-  }
-
-  .cardTopLeft {
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
-  }
-
-  .cardTopRight {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-  }
-
-  .cardMiddleLeft {
-    grid-column: 2 / 4;
-    grid-row: 1 / 4;
-  }
-
-  .cardMiddleRight {
-    grid-column: 1 / 2;
-    grid-row: 3 / 5;
-  }
-
-  .cardBottomLeft {
-    grid-column: 1 / 2;
-    grid-row: 5 / 7;
-  }
-
-  .cardBottomRight {
-    grid-column: 2 / 3;
-    grid-row: 4 / 7;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   }
 }
 
@@ -389,6 +414,23 @@
 
   .heroGallery {
     min-height: 340px;
+    grid-template-columns: 1fr;
     gap: 0.45rem;
+  }
+
+  .galleryTrack,
+  .trackUp,
+  .trackDown {
+    animation: none;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galleryTrack,
+  .trackUp,
+  .trackDown {
+    animation: none;
+    transform: none;
   }
 }
