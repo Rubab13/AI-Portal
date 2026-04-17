@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom';
-import agentOneImage from '../assets/1.jpg';
-import agentTwoImage from '../assets/2.jpg';
-import agentThreeImage from '../assets/3.jpg';
 
-import agentSuiteOne from '../assets/agentsuite1.jpg';
-import agentSuiteTwo from '../assets/agentsuite2.jpg';
-import agentSuiteThree from '../assets/agentsuite3.png';
-import agentSuiteFour from '../assets/agentsuite4.png';
+import agentSuiteOne from '../assets/suite-landing-page-images/agentsuite1.jpg';
+import agentSuiteTwo from '../assets/suite-landing-page-images/agentsuite2.jpg';
+import agentSuiteThree from '../assets/suite-landing-page-images/agentsuite3.png';
+import agentSuiteFour from '../assets/suite-landing-page-images/agentsuite4.png';
 
 export default function AgentSlider() {
   const agents = [

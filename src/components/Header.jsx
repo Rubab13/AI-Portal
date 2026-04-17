@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import '../theme.css';
-import kalsoftLogo from '../assets/Logo.png';
+import kalsoftLogo from '../assets/logo/Logo.png';
 
 export default function Header() {
   const location = useLocation();

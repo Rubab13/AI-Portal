@@ -1,10 +1,13 @@
-import Header from './Header';
 import Footer from './Footer';
+
 import AgentDetailTemplate from './AgentDetailTemplate';
-import agentSuiteOne from '../assets/agentsuite1.jpg';
-import agentSuiteTwo from '../assets/agentsuite2.jpg';
-import agentSuiteFour from '../assets/agentsuite4.png';
+
+import agentSuiteOne from '../assets/suite-landing-page-images/agentsuite1.jpg';
+import agentSuiteTwo from '../assets/suite-landing-page-images/agentsuite2.jpg';
+import agentSuiteFour from '../assets/suite-landing-page-images/agentsuite4.png';
+
 import suiteVideo from '../assets/suite-04-forecasting/video.mp4';
+
 import {
   SiPython,
   SiFastapi,
