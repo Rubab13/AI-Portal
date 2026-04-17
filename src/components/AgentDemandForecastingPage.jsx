@@ -13,8 +13,6 @@ import image8 from '../assets/suite-04-forecasting/image8.png';
 import image9 from '../assets/suite-04-forecasting/image9.png';
 import image10 from '../assets/suite-04-forecasting/image10.png';
 
-import agentSuiteFour from '../assets/suite-landing-page-images/agentsuite4.png';
-
 import suiteVideo from '../assets/suite-04-forecasting/video.mp4';
 
 import {
@@ -56,6 +54,34 @@ export default function AgentDemandForecastingPage() {
     }
   ];
 
+  const howItWorks = [
+    {
+      id: 1,
+      title: 'User Sign Up',
+      copy: 'Users create an account and securely log in to access the Demand Forecasting workspace.'
+    },
+    {
+      id: 2,
+      title: 'Set Up Connections',
+      copy: 'From the Connections module, users link their data sources such as Business Central, MongoDB, or other supported systems.'
+    },
+    {
+      id: 3,
+      title: 'Load and Explore Data',
+      copy: 'Connected databases are synced and prepared so teams can review sales history, trends, and operational context in one place.'
+    },
+    {
+      id: 4,
+      title: 'Run AI-Powered Analysis',
+      copy: 'Users can use specialized agents to perform sales analysis and detect demand patterns directly on the connected data.'
+    },
+    {
+      id: 5,
+      title: 'Generate Forecasts and Predictions',
+      copy: 'The suite produces demand forecasts and predictive insights to support planning, inventory decisions, and proactive business actions.'
+    }
+  ];
+
   const galleryImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10];
 
   const techStack = [
@@ -82,6 +108,7 @@ export default function AgentDemandForecastingPage() {
           title="Demand Forecasting Agent"
           description="Predict the future with confidence. This suite analyzes historical signals and business context to forecast demand patterns, helping you prepare operations with greater accuracy."
           features={features}
+          howItWorks={howItWorks}
           videoSrc={suiteVideo}
           galleryImages={galleryImages}
           techStack={techStack}
