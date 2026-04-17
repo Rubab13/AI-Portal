@@ -2,8 +2,17 @@ import Footer from '../ui/footer/Footer';
 
 import AgentDetailTemplate from './AgentDetailTemplate';
 
-import agentSuiteOne from '../assets/suite-landing-page-images/agentsuite1.jpg';
-import agentSuiteTwo from '../assets/suite-landing-page-images/agentsuite2.jpg';
+import image1 from '../assets/suite-04-forecasting/image1.png';
+import image2 from '../assets/suite-04-forecasting/image2.png';
+import image3 from '../assets/suite-04-forecasting/image3.png';
+import image4 from '../assets/suite-04-forecasting/image4.png';
+import image5 from '../assets/suite-04-forecasting/image5.png';
+import image6 from '../assets/suite-04-forecasting/image6.png';
+import image7 from '../assets/suite-04-forecasting/image7.png';
+import image8 from '../assets/suite-04-forecasting/image8.png';
+import image9 from '../assets/suite-04-forecasting/image9.png';
+import image10 from '../assets/suite-04-forecasting/image10.png';
+
 import agentSuiteFour from '../assets/suite-landing-page-images/agentsuite4.png';
 
 import suiteVideo from '../assets/suite-04-forecasting/video.mp4';
@@ -47,7 +56,7 @@ export default function AgentDemandForecastingPage() {
     }
   ];
 
-  const galleryImages = [agentSuiteOne, agentSuiteTwo, agentSuiteFour];
+  const galleryImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10];
 
   const techStack = [
     { name: 'Python', Icon: SiPython },

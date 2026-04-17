@@ -1,6 +1,7 @@
 import Header from './Header';
 import Footer from '../ui/footer/Footer';
 import AgentDetailTemplate from './AgentDetailTemplate';
+
 import image1 from '../assets/suite-01-hrm/image1.png';
 import image2 from '../assets/suite-01-hrm/image2.png';
 import image3 from '../assets/suite-01-hrm/image3.png';
@@ -14,7 +15,9 @@ import image10 from '../assets/suite-01-hrm/image10.png';
 import image11 from '../assets/suite-01-hrm/image11.png';
 import image12 from '../assets/suite-01-hrm/image12.png';
 import image13 from '../assets/suite-01-hrm/image13.png';
+
 import suiteVideo from '../assets/suite-01-hrm/video.mp4';
+
 import {
   SiPython,
   SiFastapi,
