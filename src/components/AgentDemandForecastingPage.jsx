@@ -6,19 +6,19 @@ import agentSuiteTwo from '../assets/agentsuite2.jpg';
 import agentSuiteFour from '../assets/agentsuite4.png';
 import suiteVideo from '../assets/suite-04-forecasting/video.mp4';
 import {
+  SiPython,
+  SiFastapi,
+  SiGooglecloud,
+  SiPydantic,
+  SiMongodb,
+  SiYaml,
+  SiDotenv,
+  SiMarkdown,
   SiReact,
   SiNodedotjs,
-  SiExpress,
-  SiPython,
-  SiPostgresql,
-  SiMongodb,
-  SiDocker,
-  SiKubernetes,
-  SiApachekafka,
-  SiOpenai,
-  SiRedis,
-  SiPytorch
+  SiOpenai
 } from 'react-icons/si';
+import { FaLock, FaShieldHalved } from 'react-icons/fa6';
 
 export default function AgentDemandForecastingPage() {
   const features = [
@@ -47,18 +47,19 @@ export default function AgentDemandForecastingPage() {
   const galleryImages = [agentSuiteOne, agentSuiteTwo, agentSuiteFour];
 
   const techStack = [
-    { name: 'React', Icon: SiReact },
-    { name: 'Node.js', Icon: SiNodedotjs },
-    { name: 'Express', Icon: SiExpress },
     { name: 'Python', Icon: SiPython },
-    { name: 'PostgreSQL', Icon: SiPostgresql },
+    { name: 'FastAPI', Icon: SiFastapi },
+    { name: 'Google ADK', Icon: SiGooglecloud },
+    { name: 'Pydantic', Icon: SiPydantic },
     { name: 'MongoDB', Icon: SiMongodb },
-    { name: 'Docker', Icon: SiDocker },
-    { name: 'Kubernetes', Icon: SiKubernetes },
-    { name: 'Kafka', Icon: SiApachekafka },
+    { name: 'PyYAML', Icon: SiYaml },
+    { name: 'Python-dotenv', Icon: SiDotenv },
+    { name: 'Passlib', Icon: FaLock },
+    { name: 'Bcrypt', Icon: FaShieldHalved },
+    { name: 'Markdown', Icon: SiMarkdown },
     { name: 'OpenAI API', Icon: SiOpenai },
-    { name: 'Redis', Icon: SiRedis },
-    { name: 'PyTorch', Icon: SiPytorch }
+    { name: 'NodeJS', Icon: SiNodedotjs },
+    { name: 'React', Icon: SiReact }
   ];
 
   return (

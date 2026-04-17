@@ -16,19 +16,19 @@ import image12 from '../assets/suite-01-hrm/image12.png';
 import image13 from '../assets/suite-01-hrm/image13.png';
 import suiteVideo from '../assets/suite-01-hrm/video.mp4';
 import {
+  SiPython,
+  SiFastapi,
+  SiGooglecloud,
+  SiPydantic,
+  SiMongodb,
+  SiYaml,
+  SiDotenv,
+  SiMarkdown,
   SiReact,
   SiNodedotjs,
-  SiExpress,
-  SiPython,
-  SiPostgresql,
-  SiMongodb,
-  SiDocker,
-  SiKubernetes,
-  SiApachekafka,
-  SiOpenai,
-  SiRedis,
-  SiPytorch
+  SiOpenai
 } from 'react-icons/si';
+import { FaRobot, FaMicrophone, FaLock } from 'react-icons/fa6';
 
 export default function AgentHRMRecruitmentPage() {
   const features = [
@@ -81,18 +81,20 @@ export default function AgentHRMRecruitmentPage() {
   const galleryImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13];
 
   const techStack = [
-    { name: 'React', Icon: SiReact },
-    { name: 'Node.js', Icon: SiNodedotjs },
-    { name: 'Express', Icon: SiExpress },
     { name: 'Python', Icon: SiPython },
-    { name: 'PostgreSQL', Icon: SiPostgresql },
+    { name: 'FastAPI', Icon: SiFastapi },
+    { name: 'Google ADK', Icon: SiGooglecloud },
+    { name: 'Groq', Icon: FaRobot },
+    { name: 'TTSFM', Icon: FaMicrophone },
+    { name: 'Pydantic', Icon: SiPydantic },
     { name: 'MongoDB', Icon: SiMongodb },
-    { name: 'Docker', Icon: SiDocker },
-    { name: 'Kubernetes', Icon: SiKubernetes },
-    { name: 'Kafka', Icon: SiApachekafka },
+    { name: 'Passlib & Bcrypt', Icon: FaLock },
+    { name: 'PyYAML', Icon: SiYaml },
+    { name: 'Python-dotenv', Icon: SiDotenv },
+    { name: 'Markdown', Icon: SiMarkdown },
     { name: 'OpenAI API', Icon: SiOpenai },
-    { name: 'Redis', Icon: SiRedis },
-    { name: 'PyTorch', Icon: SiPytorch }
+    { name: 'NodeJS', Icon: SiNodedotjs },
+    { name: 'React', Icon: SiReact }
   ];
 
   return (

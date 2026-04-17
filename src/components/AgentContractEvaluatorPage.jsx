@@ -11,19 +11,22 @@ import image7 from '../assets/suite-02-contract/image7.png';
 
 import suiteVideo from '../assets/suite-02-contract/video.mp4';
 import {
-  SiReact,
-  SiNodedotjs,
-  SiExpress,
   SiPython,
-  SiPostgresql,
+  SiFastapi,
+  SiGooglecloud,
+  SiLangchain,
+  SiLanggraph,
+  SiPydantic,
   SiMongodb,
-  SiDocker,
-  SiKubernetes,
-  SiApachekafka,
-  SiOpenai,
-  SiRedis,
-  SiPytorch
+  SiDotenv,
+  SiMarkdown,
+  SiPytest,
+  SiPandas,
+  SiNodedotjs,
+  SiReact,
+  SiOpenai
 } from 'react-icons/si';
+import { FaGoogle, FaFilePdf, FaFileExcel, FaFileCode, FaArrowRightLong, FaLock, FaShieldHalved, FaEnvelope, FaClock } from 'react-icons/fa6';
 
 export default function AgentContractEvaluatorPage() {
   const features = [
@@ -83,18 +86,29 @@ export default function AgentContractEvaluatorPage() {
   const galleryImages = [image1, image2, image3, image4, image5, image6, image7];
 
   const techStack = [
-    { name: 'React', Icon: SiReact },
-    { name: 'Node.js', Icon: SiNodedotjs },
-    { name: 'Express', Icon: SiExpress },
     { name: 'Python', Icon: SiPython },
-    { name: 'PostgreSQL', Icon: SiPostgresql },
+    { name: 'FastAPI', Icon: SiFastapi },
+    { name: 'Google GenAI', Icon: FaGoogle },
+    { name: 'LangChain', Icon: SiLangchain },
+    { name: 'LangGraph', Icon: SiLanggraph },
+    { name: 'Pydantic', Icon: SiPydantic },
+    { name: 'PyPDF', Icon: FaFilePdf },
+    { name: 'ReportLab', Icon: FaFilePdf },
+    { name: 'Pandas', Icon: SiPandas },
+    { name: 'Openpyxl', Icon: FaFileExcel },
+    { name: 'Requests', Icon: FaArrowRightLong },
+    { name: 'JSONSchema', Icon: FaFileCode },
     { name: 'MongoDB', Icon: SiMongodb },
-    { name: 'Docker', Icon: SiDocker },
-    { name: 'Kubernetes', Icon: SiKubernetes },
-    { name: 'Kafka', Icon: SiApachekafka },
+    { name: 'Passlib (Argon2 hashing)', Icon: FaLock },
+    { name: 'Argon2-CFFI', Icon: FaShieldHalved },
+    { name: 'Email-validator', Icon: FaEnvelope },
+    { name: 'Python-dotenv', Icon: SiDotenv },
+    { name: 'Pytest', Icon: SiPytest },
+    { name: 'Pytest-asyncio', Icon: FaClock },
+    { name: 'Markdown', Icon: SiMarkdown },
     { name: 'OpenAI API', Icon: SiOpenai },
-    { name: 'Redis', Icon: SiRedis },
-    { name: 'PyTorch', Icon: SiPytorch }
+    { name: 'NodeJS', Icon: SiNodedotjs },
+    { name: 'React', Icon: SiReact },
   ];
 
   return (

@@ -16,18 +16,16 @@ import image12 from "../assets/suite-03-database/image12.png";
 
 import suiteVideo from '../assets/suite-03-database/video.mp4';
 import {
+  SiPython,
+  SiFastapi,
+  SiPydantic,
+  SiGooglecloud,
+  SiSqlite,
+  SiMarkdown,
+  SiDocker,
   SiReact,
   SiNodedotjs,
-  SiExpress,
-  SiPython,
-  SiPostgresql,
-  SiMongodb,
-  SiDocker,
-  SiKubernetes,
-  SiApachekafka,
-  SiOpenai,
-  SiRedis,
-  SiPytorch
+  SiOpenai
 } from 'react-icons/si';
 
 export default function AgentDatabasePage() {
@@ -57,18 +55,16 @@ export default function AgentDatabasePage() {
   const galleryImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12];
 
   const techStack = [
-    { name: 'React', Icon: SiReact },
-    { name: 'Node.js', Icon: SiNodedotjs },
-    { name: 'Express', Icon: SiExpress },
     { name: 'Python', Icon: SiPython },
-    { name: 'PostgreSQL', Icon: SiPostgresql },
-    { name: 'MongoDB', Icon: SiMongodb },
+    { name: 'FastAPI', Icon: SiFastapi },
+    { name: 'Pydantic', Icon: SiPydantic },
+    { name: 'Google ADK', Icon: SiGooglecloud },
+    { name: 'SQLite3', Icon: SiSqlite },
+    { name: 'Markdown', Icon: SiMarkdown },
     { name: 'Docker', Icon: SiDocker },
-    { name: 'Kubernetes', Icon: SiKubernetes },
-    { name: 'Kafka', Icon: SiApachekafka },
     { name: 'OpenAI API', Icon: SiOpenai },
-    { name: 'Redis', Icon: SiRedis },
-    { name: 'PyTorch', Icon: SiPytorch }
+    { name: 'NodeJS', Icon: SiNodedotjs },
+    { name: 'React', Icon: SiReact }
   ];
 
   return (
