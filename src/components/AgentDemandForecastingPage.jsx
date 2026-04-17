@@ -12,6 +12,13 @@ import image7 from '../assets/suite-04-forecasting/image7.png';
 import image8 from '../assets/suite-04-forecasting/image8.png';
 import image9 from '../assets/suite-04-forecasting/image9.png';
 import image10 from '../assets/suite-04-forecasting/image10.png';
+import image11 from '../assets/suite-04-forecasting/image11.jfif';
+import image12 from '../assets/suite-04-forecasting/image12.png';
+import image13 from '../assets/suite-04-forecasting/image13.png';
+import image14 from '../assets/suite-04-forecasting/image14.png';
+import image15 from '../assets/suite-04-forecasting/image15.png';
+import image16 from '../assets/suite-04-forecasting/image16.png';
+import image17 from '../assets/suite-04-forecasting/image17.png';
 
 import suiteVideo from '../assets/suite-04-forecasting/video.mp4';
 
@@ -82,7 +89,7 @@ export default function AgentDemandForecastingPage() {
     }
   ];
 
-  const galleryImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10];
+  const galleryImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15, image16, image17];
 
   const techStack = [
     { name: 'Python', Icon: SiPython },
