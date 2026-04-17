@@ -103,7 +103,7 @@ export default function QuickValueStrip() {
   }, [isInView]);
 
   return (
-    <section ref={sectionRef} className={styles.quickValueStrip} aria-label="Quick value highlights">
+    <section id="quick-value-strip" ref={sectionRef} className={styles.quickValueStrip} aria-label="Quick value highlights">
       <div className={`site-shell ${styles.quickValueWrap}`}>
         <Heading text="KALSOFT AI QUICK VALUE" />
 
