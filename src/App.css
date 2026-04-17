@@ -705,7 +705,7 @@ body {
 
 .agent-grid-card {
 	position: relative;
-	border-radius: 1.35rem;
+	/* border-radius: 1.35rem; */
 	overflow: hidden;
 	cursor: pointer;
 	aspect-ratio: 1;

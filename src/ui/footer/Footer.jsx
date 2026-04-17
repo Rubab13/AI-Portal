@@ -18,7 +18,7 @@ export default function Footer() {
       <div className={`site-shell ${styles.footerWrap}`}>
         <div className={styles.footerLeft}>
           <p className={styles.footerBrand}>Kalsoft AI Portal</p>
-          <p className={styles.footerCopy}>© 2024 Kalsoft AI Portal. All rights reserved.</p>
+          <p className={styles.footerCopy}>© 2026 Kalsoft AI Portal. All rights reserved.</p>
         </div>
 
         <ul className={styles.footerMenu} aria-label="Footer links">
