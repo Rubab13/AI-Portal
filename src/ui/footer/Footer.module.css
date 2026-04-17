@@ -95,6 +95,28 @@
 	color: #dc1f26;
 }
 
+.partnerStrip {
+	min-height: auto;
+	grid-template-columns: 1fr;
+	padding-top: 0;
+	padding-bottom: 1.5rem;
+}
+
+.partnerLogoRow {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 2rem;
+	width: 100%;
+}
+
+.partnerLogo {
+	height: 2.1rem;
+	width: auto;
+	object-fit: contain;
+	flex-shrink: 0;
+}
+
 @media (max-width: 1240px) {
 	.footerWrap {
 		grid-template-columns: 1fr;
@@ -104,6 +126,12 @@
 	.footerMenu {
 		flex-wrap: wrap;
 		gap: 1.15rem 1.6rem;
+	}
+
+	.partnerLogoRow {
+		justify-content: flex-start;
+		gap: 1.6rem;
+		flex-wrap: wrap;
 	}
 }
 
@@ -136,5 +164,17 @@
 	.iconButton {
 		width: 2.65rem;
 		height: 2.65rem;
+	}
+
+	.partnerStrip {
+		padding-bottom: 1.1rem;
+	}
+
+	.partnerLogoRow {
+		gap: 1.2rem;
+	}
+
+	.partnerLogo {
+		height: 1.65rem;
 	}
 }

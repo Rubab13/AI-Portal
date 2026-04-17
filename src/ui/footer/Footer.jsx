@@ -46,7 +46,7 @@ export default function Footer() {
           </button>
         </div>
       </div>
-      <div className={`site-shell ${styles.footerWrap}`}>
+      <div className={`site-shell ${styles.footerWrap} ${styles.partnerStrip}`}>
         <div className={styles.partnerLogoRow} aria-label="Partner logos">
           {partnerLogos.map((logo) => (
             <img

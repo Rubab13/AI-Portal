@@ -1195,7 +1195,7 @@ export default function AgentDetailTemplate({
       border-radius: 50px;
       padding: 1.25rem 0.9rem;
       box-shadow: 0 8px 32px rgba(220, 31, 38, 0.12);
-      border: 1px solid rgba(220, 31, 38, 0.15);
+      border: 3px solid rgba(220, 31, 38, 0.15);
     }
 
     .agent-nav-item {
