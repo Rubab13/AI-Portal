@@ -1,0 +1,140 @@
+.footer {
+	margin-top: 1.2rem;
+	border-top: 1px solid rgba(148, 163, 184, 0.2);
+	background: #f3f4f6;
+}
+
+.footerWrap {
+	min-height: 11rem;
+	display: grid;
+	grid-template-columns: 1fr auto auto;
+	gap: 1.5rem;
+	align-items: center;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.footerLeft {
+	display: flex;
+	flex-direction: column;
+	gap: 0.9rem;
+}
+
+.footerBrand {
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 0.01em;
+	color: #dc1f26;
+	font-size: 2rem;
+	font-weight: 800;
+}
+
+.footerCopy {
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	color: #8a909b;
+	font-size: 0.68rem;
+	font-weight: 600;
+}
+
+.footerMenu {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.menuLink {
+	color: #7a7f87;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-size: 1.03rem;
+	font-weight: 600;
+	transition: color 0.2s ease;
+}
+
+.menuLink:hover {
+	color: #dc1f26;
+}
+
+.supportLink {
+	color: #dc1f26;
+}
+
+.footerIcons {
+	display: flex;
+	align-items: center;
+	gap: 0.9rem;
+}
+
+.iconButton {
+	width: 3.15rem;
+	height: 3.15rem;
+	border-radius: 0.9rem;
+	border: 1px solid #d9dde4;
+	background: #f8f9fb;
+	color: #6b7280;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.iconButton svg {
+	width: 1rem;
+	height: 1rem;
+}
+
+.iconButton:hover {
+	transform: translateY(-1px);
+	border-color: #dc1f26;
+	color: #dc1f26;
+}
+
+@media (max-width: 1240px) {
+	.footerWrap {
+		grid-template-columns: 1fr;
+		justify-items: start;
+	}
+
+	.footerMenu {
+		flex-wrap: wrap;
+		gap: 1.15rem 1.6rem;
+	}
+}
+
+@media (max-width: 640px) {
+	.footer {
+		margin-top: 0.7rem;
+	}
+
+	.footerWrap {
+		min-height: auto;
+		padding-top: 1.3rem;
+		padding-bottom: 1.45rem;
+		gap: 1rem;
+	}
+
+	.footerBrand {
+		font-size: 1.35rem;
+	}
+
+	.footerCopy {
+		letter-spacing: 0.08em;
+		font-size: 0.61rem;
+	}
+
+	.menuLink {
+		font-size: 0.82rem;
+		letter-spacing: 0.06em;
+	}
+
+	.iconButton {
+		width: 2.65rem;
+		height: 2.65rem;
+	}
+}

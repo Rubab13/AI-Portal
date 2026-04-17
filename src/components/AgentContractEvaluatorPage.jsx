@@ -1,5 +1,5 @@
 import Header from './Header';
-import Footer from './Footer';
+import Footer from '../ui/footer/Footer';
 import AgentDetailTemplate from './AgentDetailTemplate';
 import image1 from '../assets/suite-02-contract/image1.png';
 import image2 from '../assets/suite-02-contract/image2.png';

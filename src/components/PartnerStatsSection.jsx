@@ -1,3 +1,5 @@
+import Heading from '../ui/Heading/Heading';
+
 const stats = [
   {
     value: '07',
@@ -72,11 +74,7 @@ export default function PartnerStatsSection() {
   return (
     <section className="partner-stats-section" aria-label="Company metrics">
       <div className="site-shell partner-stats-top">
-        <div className="partner-stats-title-wrap">
-          <span className="partner-stats-line" aria-hidden="true" />
-          <h2 className="partner-stats-title">MICROSOFT SOLUTIONS PARTNER</h2>
-          <span className="partner-stats-line" aria-hidden="true" />
-        </div>
+        <Heading text="MICROSOFT SOLUTIONS PARTNER" />
 
         <div className="partner-stats-grid">
           {stats.map((item) => (

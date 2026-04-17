@@ -4,6 +4,7 @@ import {
   RiCodeSSlashLine,
   RiShieldCheckLine,
 } from 'react-icons/ri';
+import Heading from '../ui/Heading/Heading';
 
 const quickBenefits = [
   { label: 'Automate workflows', Icon: RiRobot2Line },
@@ -16,11 +17,7 @@ export default function QuickValueStrip() {
   return (
     <section className="quick-value-strip" aria-label="Quick value highlights">
       <div className="site-shell quick-value-wrap">
-        <div className="quick-value-title-wrap">
-          <span className="quick-value-line" aria-hidden="true" />
-          <h2 className="quick-value-title">KALSOFT AI QUICK VALUE</h2>
-          <span className="quick-value-line" aria-hidden="true" />
-        </div>
+        <Heading text="KALSOFT AI QUICK VALUE" />
 
         <div className="quick-value-grid">
           {quickBenefits.map(({ label, Icon }) => (
