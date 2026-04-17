@@ -52,6 +52,34 @@ export default function AgentDatabasePage() {
     }
   ];
 
+  const howItWorks = [
+    {
+      id: 1,
+      title: 'User Sign Up',
+      copy: 'Users create an account and authenticate securely into the Database Agent platform.'
+    },
+    {
+      id: 2,
+      title: 'Connect Database',
+      copy: 'Users establish a secure connection to their database by providing connection credentials or configuring API access.'
+    },
+    {
+      id: 3,
+      title: 'Analyze Data',
+      copy: 'The AI agent processes natural language queries, generates optimized SQL queries, and executes them against the connected database.'
+    },
+    {
+      id: 4,
+      title: 'Generate Visualizations',
+      copy: 'Results are transformed into visual representations (charts, graphs, tables) for easy interpretation.'
+    },
+    {
+      id: 5,
+      title: 'Extract Insights',
+      copy: 'Users extract actionable insights from the visualizations to make data-driven business decisions.'
+    }
+  ];
+
   const galleryImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12];
 
   const techStack = [
@@ -75,6 +103,7 @@ export default function AgentDatabasePage() {
           title="Database Agent"
           description="Access your data intuitively with AI. This suite connects natural language requests with structured queries, helping teams extract insights without technical expertise."
           features={features}
+          howItWorks={howItWorks}
           videoSrc={suiteVideo}
           galleryImages={galleryImages}
           techStack={techStack}
