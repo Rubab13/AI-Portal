@@ -16,7 +16,7 @@ import {
 } from 'react-icons/si';
 import { FaUserTie, FaUser, FaHome, FaBook, FaImage, FaWrench, FaLightbulb } from 'react-icons/fa';
 import { MdArrowBack, MdArrowForward } from 'react-icons/md';
-import kalsoftLogo from '../assets/logo/Logo.png';
+import kalsoftLogo from '../assets/logo/logo1.png';
 
 export default function AgentDetailTemplate({
   suiteNumber,
@@ -284,10 +284,9 @@ export default function AgentDetailTemplate({
     }
 
     .agent-top-logo {
-      width: 9rem;
-      height: 4rem;
+      width: 11.2rem;
+      height: 3.3rem;
       object-fit: contain;
-      filter: drop-shadow(0 6px 10px rgba(220, 31, 38, 0.16));
     }
 
     .agent-cta-button {
@@ -1285,16 +1284,28 @@ export default function AgentDetailTemplate({
       .agent-hero {
         min-height: auto;
         padding: 2rem 1rem;
+        padding-top: 6rem;
       }
 
       .agent-page-top-left-nav {
-        top: 0.75rem;
-        left: 1rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 5rem;
+        z-index: 130;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1rem;
+        background: #ffffff;
+        border-bottom: 1px solid #e5e7eb;
+        gap: 1rem;
       }
 
-      .agent-top-logo {
-        width: 2.15rem;
-        height: 2.15rem;
+      .agent-nav-link {
+        flex-shrink: 0;
       }
 
       .agent-cta-button {
@@ -1416,6 +1427,12 @@ export default function AgentDetailTemplate({
 
       .agent-video-placeholder.is-expanded {
         width: 96vw;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .agent-capability-item {
+        width: 100%;
       }
     }
   `;
