@@ -1,4 +1,5 @@
 import '../theme.css';
+import '../css/responsiveness.css';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import heroStyles from './Hero.module.css';
@@ -30,6 +31,7 @@ const rightColumnImages = [
 
 export default function Hero() {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const lastScrollYRef = useRef(0);
 
   useEffect(() => {
@@ -75,6 +77,10 @@ export default function Hero() {
     }
   };
 
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <section className={heroStyles.heroSection}>
       <div className={`site-shell ${heroStyles.heroShell}`}>
@@ -85,7 +91,7 @@ export default function Hero() {
             <img src={kalsoftLogo} alt="Kalsoft logo" className={heroStyles.logoImage} />
           </Link>
 
-          <nav className={heroStyles.heroNav} aria-label="Primary">
+          <nav className={`${heroStyles.heroNav} desktop-nav`} aria-label="Primary">
             <button type="button" className={heroStyles.navItem} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               Home
             </button>
@@ -100,12 +106,47 @@ export default function Hero() {
             </button>
           </nav>
 
-          <div className={heroStyles.headerActions}>
+          <div className={`${heroStyles.headerActions} desktop-actions`}>
             <a
               href="https://www.kalsoft.com/"
               target="_blank"
               rel="noopener noreferrer"
               className={heroStyles.signInButton}
+            >
+              Visit Website
+            </a>
+          </div>
+
+          <button
+            type="button"
+            className={`burger-menu-btn ${isMobileMenuOpen ? 'active' : ''}`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+            <button type="button" className="mobile-menu-item" onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); closeMobileMenu(); }}>
+              Home
+            </button>
+            <button type="button" className="mobile-menu-item" onClick={() => { scrollToElementById('quick-value-strip'); closeMobileMenu(); }}>
+              Value
+            </button>
+            <button type="button" className="mobile-menu-item" onClick={() => { scrollToElementById('agent-slider'); closeMobileMenu(); }}>
+              Agents
+            </button>
+            <button type="button" className="mobile-menu-item" onClick={() => { scrollToSelector('footer'); closeMobileMenu(); }}>
+              Contact Us
+            </button>
+            <a
+              href="https://www.kalsoft.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mobile-menu-link"
+              onClick={closeMobileMenu}
             >
               Visit Website
             </a>

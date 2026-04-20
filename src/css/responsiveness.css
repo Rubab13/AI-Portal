@@ -1,0 +1,110 @@
+/* Burger Menu Styles */
+.burger-menu-btn {
+  display: none;
+  flex-direction: column;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  gap: 0.4rem;
+  padding: 0.3rem;
+}
+
+.burger-menu-btn span {
+  width: 1.5rem;
+  height: 0.2rem;
+  background-color: #5e6570;
+  border-radius: 0.1rem;
+  transition: all 0.3s ease;
+}
+
+.burger-menu-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(0.5rem, 0.5rem);
+}
+
+.burger-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(0.45rem, -0.45rem);
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  background: rgba(236, 236, 237, 0.98);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 0 0 15px 15px;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  z-index: 100;
+}
+
+.mobile-menu.active {
+  display: flex;
+}
+
+.mobile-menu-item {
+  border: none;
+  background: transparent;
+  color: #5e6570;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.mobile-menu-item:first-child {
+  color: #1a1e25;
+  font-weight: 700;
+}
+
+.mobile-menu-item:hover {
+  background: rgba(220, 31, 38, 0.08);
+  color: #dc1f26;
+}
+
+.mobile-menu-link {
+  border: none;
+  background: transparent;
+  color: #5e6570;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  width: 100%;
+  text-decoration: none;
+  display: block;
+}
+
+.mobile-menu-link:hover {
+  background: rgba(220, 31, 38, 0.08);
+  color: #dc1f26;
+}
+
+/* Mobile responsive header */
+@media (max-width: 700px) {
+  .burger-menu-btn {
+    display: flex;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .desktop-actions {
+    display: none;
+  }
+}
