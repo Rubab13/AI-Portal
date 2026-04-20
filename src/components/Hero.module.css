@@ -332,6 +332,24 @@
   }
 }
 
+@keyframes heroRowLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 0.26rem));
+  }
+}
+
+@keyframes heroRowRight {
+  from {
+    transform: translateX(calc(-50% - 0.26rem));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 @media (max-width: 1180px) {
   .heroGrid {
     min-height: auto;
@@ -419,11 +437,40 @@
     gap: 0.45rem;
   }
 
-  .galleryTrack,
-  .trackUp,
+  .galleryColumnViewport {
+    width: 100%;
+  }
+
+  .galleryColumnViewport:last-child {
+    display: none;
+  }
+
+  .galleryTrack {
+    flex-direction: row;
+    gap: 0.45rem;
+  }
+
+  .galleryCard {
+    min-width: 100%;
+    flex-shrink: 0;
+    aspect-ratio: auto;
+    height: 340px;
+  }
+
+  .cardSquare,
+  .cardRectangle,
+  .cardSmall,
+  .cardLarge,
+  .cardMedium {
+    min-height: auto;
+  }
+
+  .trackUp {
+    animation: heroRowLeft 50s linear infinite;
+  }
+
   .trackDown {
-    animation: none;
-    transform: none;
+    animation: heroRowRight 80s linear infinite;
   }
 }
 
