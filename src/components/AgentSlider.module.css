@@ -4,9 +4,14 @@
   min-height: 100vh;
   background: #000000;
   display: flex;
+  position: relative;
   overflow: hidden;
   margin: 0;
   padding: 0;
+}
+
+.mobileNavButton {
+  display: none;
 }
 
 .agentGridContainer {
@@ -242,6 +247,39 @@
     padding: 0.7rem 1.5rem;
     font-size: 0.95rem;
   }
+
+  .mobileNavButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.45);
+    color: #ffffff;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 6;
+    backdrop-filter: blur(4px);
+  }
+
+  .mobileNavButton:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .mobilePrev {
+    left: 0.65rem;
+  }
+
+  .mobileNext {
+    right: 0.65rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -254,6 +292,7 @@
     font-size: 0.8rem;
     margin-bottom: 1rem;
     line-height: 1.45;
+    max-width: 100%;
   }
 
   .agentGridActions {

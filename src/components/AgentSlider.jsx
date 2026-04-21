@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './AgentSlider.module.css';
 
@@ -7,6 +8,9 @@ import agentSuiteThree from '../assets/suite-landing-page-images/agentsuite3.png
 import agentSuiteFour from '../assets/suite-landing-page-images/agentsuite4.png';
 
 export default function AgentSlider() {
+  const sliderRef = useRef(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+
   const agents = [
     {
       id: 1,
@@ -41,9 +45,30 @@ export default function AgentSlider() {
     4: '/agents/demand-forecasting',
   };
 
+  const handleSliderScroll = () => {
+    if (!sliderRef.current) return;
+    const current = Math.round(sliderRef.current.scrollLeft / sliderRef.current.clientWidth);
+    setActiveSlide(current);
+  };
+
+  const scrollToSlide = (direction) => {
+    if (!sliderRef.current) return;
+    const current = Math.round(sliderRef.current.scrollLeft / sliderRef.current.clientWidth);
+    const next = Math.max(0, Math.min(agents.length - 1, current + direction));
+    sliderRef.current.scrollTo({
+      left: next * sliderRef.current.clientWidth,
+      behavior: 'smooth',
+    });
+    setActiveSlide(next);
+  };
+
   return (
       <section className={styles.agentSliderWrapper} id="agent-slider">
-        <div className={styles.agentGridContainer}>
+        <div
+          ref={sliderRef}
+          className={styles.agentGridContainer}
+          onScroll={handleSliderScroll}
+        >
           {agents.map((agent) => (
             <div
               key={agent.id}
@@ -78,6 +103,26 @@ export default function AgentSlider() {
             </div>
           ))}
         </div>
+
+        <button
+          type="button"
+          className={`${styles.mobileNavButton} ${styles.mobilePrev}`}
+          onClick={() => scrollToSlide(-1)}
+          aria-label="Previous slide"
+          disabled={activeSlide === 0}
+        >
+          {'<'}
+        </button>
+
+        <button
+          type="button"
+          className={`${styles.mobileNavButton} ${styles.mobileNext}`}
+          onClick={() => scrollToSlide(1)}
+          aria-label="Next slide"
+          disabled={activeSlide === agents.length - 1}
+        >
+          {'>'}
+        </button>
       </section>
   );
 }
