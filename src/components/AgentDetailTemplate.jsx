@@ -1356,29 +1356,42 @@ export default function AgentDetailTemplate({
         padding: 2rem 1rem;
       }
 
-      .agent-gallery-main {
-        height: 340px;
-      }
-
       .agent-gallery-layout {
         grid-template-columns: 1fr;
+        gap: 0.85rem;
       }
 
       .agent-gallery-main {
+        height: min(52vh, 340px);
         min-height: 340px;
+        border-radius: 1rem;
       }
 
       .agent-gallery-thumbs {
         flex-direction: row;
+        height: auto;
         max-height: none;
         overflow-x: auto;
         overflow-y: hidden;
+        gap: 0.65rem;
         padding-bottom: 0.2rem;
+        scroll-snap-type: x proximity;
+      }
+
+      .agent-gallery-thumbs::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .agent-gallery-thumbs::-webkit-scrollbar-thumb {
+        background: rgba(220, 31, 38, 0.4);
+        border-radius: 9999px;
       }
 
       .agent-gallery-thumb {
+        flex: 0 0 130px;
         min-width: 130px;
         min-height: 90px;
+        scroll-snap-align: start;
       }
 
       .agent-tech-title {
@@ -1427,6 +1440,26 @@ export default function AgentDetailTemplate({
 
       .agent-video-placeholder.is-expanded {
         width: 96vw;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .agent-gallery-main {
+        height: min(44vh, 300px);
+        min-height: 250px;
+      }
+
+      .agent-gallery-thumb {
+        flex: 0 0 112px;
+        min-width: 112px;
+        min-height: 78px;
+      }
+
+      .agent-gallery-count {
+        left: 0.75rem;
+        bottom: 0.75rem;
+        padding: 0.42rem 0.72rem;
+        font-size: 0.68rem;
       }
     }
 
