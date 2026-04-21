@@ -97,14 +97,14 @@
 /* Mobile responsive header */
 @media (max-width: 700px) {
   .burger-menu-btn {
-    display: flex;
+    display: flex !important;
   }
 
   .desktop-nav {
-    display: none;
+    display: none !important;
   }
 
   .desktop-actions {
-    display: none;
+    display: none !important;
   }
 }
