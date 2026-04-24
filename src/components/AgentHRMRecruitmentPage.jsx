@@ -16,7 +16,7 @@ import image11 from '../assets/suite-01-hrm/image11.png';
 import image12 from '../assets/suite-01-hrm/image12.png';
 import image13 from '../assets/suite-01-hrm/image13.png';
 
-import suiteVideo from '../assets/suite-01-hrm/video.mp4';
+import suiteVideo from '../assets/suite-01-hrm/hr_agent_video.mp4';
 
 import {
   SiPython,

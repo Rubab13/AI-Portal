@@ -20,7 +20,7 @@ import image15 from '../assets/suite-04-forecasting/image15.png';
 import image16 from '../assets/suite-04-forecasting/image16.png';
 import image17 from '../assets/suite-04-forecasting/image17.png';
 
-import suiteVideo from '../assets/suite-04-forecasting/video.mp4';
+import suiteVideo from '../assets/suite-04-forecasting/demand_agent_video.mp4';
 
 import {
   SiPython,

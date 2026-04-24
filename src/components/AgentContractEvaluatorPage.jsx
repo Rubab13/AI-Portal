@@ -9,7 +9,7 @@ import image5 from '../assets/suite-02-contract/image5.png';
 import image6 from '../assets/suite-02-contract/image6.png';
 import image7 from '../assets/suite-02-contract/image7.png';
 
-import suiteVideo from '../assets/suite-02-contract/video.mp4';
+import suiteVideo from '../assets/suite-02-contract/contract_agent_video.mp4';
 import {
   SiPython,
   SiFastapi,

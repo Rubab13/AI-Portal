@@ -14,7 +14,7 @@ import image10 from "../assets/suite-03-database/image10.png";
 import image11 from "../assets/suite-03-database/image11.png";
 import image12 from "../assets/suite-03-database/image12.png";
 
-import suiteVideo from '../assets/suite-03-database/video.mp4';
+import suiteVideo from '../assets/suite-03-database/db_agent_video.mp4';
 import {
   SiPython,
   SiFastapi,
