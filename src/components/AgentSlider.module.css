@@ -34,8 +34,18 @@
   height: 100%;
 }
 
+.agentGridCard {
+  border-right: 2px solid #ccc;
+}
+
+.agentGridCard:last-child {
+  border-right: none;
+  border-left: 2px solid #ccc;
+}
+
 .agentGridCard:hover {
   flex: 4;
+  transition: flex 0.8s ease;
 }
 
 .agentGridImage {
