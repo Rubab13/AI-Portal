@@ -15,6 +15,21 @@ import image10 from '../assets/suite-01-hrm/image10.png';
 import image11 from '../assets/suite-01-hrm/image11.png';
 import image12 from '../assets/suite-01-hrm/image12.png';
 import image13 from '../assets/suite-01-hrm/image13.png';
+import image14 from '../assets/suite-01-hrm/image14.png';
+import image15 from '../assets/suite-01-hrm/image15.png';
+import image16 from '../assets/suite-01-hrm/image16.png';
+import image17 from '../assets/suite-01-hrm/image17.png';
+import image18 from '../assets/suite-01-hrm/image18.png';
+import image19 from '../assets/suite-01-hrm/image19.png';
+import image20 from '../assets/suite-01-hrm/image20.png';
+import image21 from '../assets/suite-01-hrm/image21.png';
+import image22 from '../assets/suite-01-hrm/image22.png';
+import image23 from '../assets/suite-01-hrm/image23.png';
+import image24 from '../assets/suite-01-hrm/image24.png';
+import image25 from '../assets/suite-01-hrm/image25.png';
+import image26 from '../assets/suite-01-hrm/image26.png';
+import image27 from '../assets/suite-01-hrm/image27.png';
+import image28 from '../assets/suite-01-hrm/image28.png';
 
 import suiteVideo from '../assets/suite-01-hrm/hr_agent_video.mp4';
 
@@ -81,7 +96,7 @@ export default function AgentHRMRecruitmentPage() {
     }
   ];
 
-  const galleryImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13];
+  const galleryImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14, image15, image16, image17, image18, image19, image20, image21, image22, image23, image24, image25, image26, image27, image28];
 
   const techStack = [
     { name: 'Python', Icon: SiPython },
